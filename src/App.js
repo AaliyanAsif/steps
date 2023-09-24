@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Button from "./components/Button";
+import StepMessege from "./components/StepMessege";
+
 
 const messages = [
   "Learn React ⚛️",
@@ -29,24 +32,22 @@ export default function App() {
             <div className={step === 3 ? "active" : ""}>3</div>
           </div>
 
-          <p className="message">
+          {/* <p className="message">
             Step {step}: {messages[step - 1]}
-          </p>
+          </p> */}
 
-          <div className="buttons">
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
-              onClick={handlePrevious}
-            >
-              Previous
-            </button>
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
-              onClick={handleNext}
-            >
-              Next
-            </button>
-          </div>
+          <StepMessege step={step}>
+            {messages[step - 1]}
+          </StepMessege>
+<div className="buttons">
+
+          <Button bgColor={"#7950f2"} textColor={"#fff"}  onClick={handlePrevious}  >
+            <span>👈 Previous</span>
+          </Button>
+          <Button bgColor={"#7950f2"} textColor={"#fff"}  onClick={handleNext}  > 
+          <span>Next 👉</span>
+          </Button>
+</div>
         </div>
       )}
     </>
